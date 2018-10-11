@@ -3,6 +3,7 @@ package com.blastraven.b.foruvdice
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import kotlinx.android.synthetic.main.activity_number_of_face.*
 import org.jetbrains.anko.db.INTEGER
 import org.jetbrains.anko.db.PRIMARY_KEY
 import org.jetbrains.anko.db.UNIQUE

@@ -32,7 +32,7 @@ class TitleActivity : AppCompatActivity() {
             button("HELP") {
                 textSize = 15f
                 onClick {
-                    val intent = Intent(TitleActivityGetContext(), NumberOfFaceActivity::class.java)
+                    val intent = Intent(TitleActivityGetContext(), HowToActivity::class.java)
                     startActivity(intent)
                 }
             }

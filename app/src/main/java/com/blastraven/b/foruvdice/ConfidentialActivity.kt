@@ -27,7 +27,6 @@ class ConfidentialActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_confidential)
         linearLayout {
             scrollView {
-
                 verticalLayout {
                     padding = dip(30)
                     for (i in 1..numface) {
@@ -41,9 +40,12 @@ class ConfidentialActivity : AppCompatActivity() {
                 onClick {
                     for (i in 1..numface) {
                         database.use {
-                            insert(numface.toString(),
-                                    "face" to i,
-                                    "param" to temp[i])
+                            //$numface.toString()
+                            insert("2",
+                                    "id" to 1,//i
+                                    "face" to 1,//i
+                                    "probability" to 1//temp[i]
+                            )
                         }
                     }
                     toast(t)

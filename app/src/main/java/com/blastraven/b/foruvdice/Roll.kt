@@ -3,6 +3,7 @@ package com.blastraven.b.foruvdice
 import java.util.*
 
 class Roll(num: Int) {
+    var result=0//ダイスロールの結果は!?
     var numface = num//ダイスの面数
     var commonmultiple = 0//最小公倍数
     var Percentparam = arrayListOf<Int>(numface, 0)//百分率の配列
@@ -13,7 +14,7 @@ class Roll(num: Int) {
     fun ClosedRange<Int>.random() =
             Random().nextInt((endInclusive + 1) - start) + start
 
-    fun roll(num: Int) {
+    fun roll(num: Int):Int {
         //判定方法分岐
 
         //各種初期化
@@ -25,6 +26,9 @@ class Roll(num: Int) {
         Percentagerand = (1..100).random()//乱数
         commonmultiplerand = 0//乱数
 
+        //いざ転がす!
+        //テスト用
+        return result
     }
 
     //確率を直接表記

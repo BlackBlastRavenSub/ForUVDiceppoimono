@@ -19,8 +19,9 @@ class MyDatabaseOpenHelper(ctx: Context) : ManagedSQLiteOpenHelper(ctx, "MyDatab
 
     override fun onCreate(db: SQLiteDatabase) {
         // Here you create tables
-        db.createTable("Config", true,
+        /*db.createTable("Config", true,
                 "id" to INTEGER + PRIMARY_KEY + UNIQUE)
+                */
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {

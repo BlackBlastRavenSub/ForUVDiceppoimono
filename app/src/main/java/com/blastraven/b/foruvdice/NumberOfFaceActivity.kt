@@ -21,9 +21,21 @@ class NumberOfFaceActivity : AppCompatActivity() {
                 var num = Integer.parseInt(editText.text.toString())
                 if (num != 0) {
                     database.use {
-                        createTable("{$editText.text.toString()}", true,
-                                "face" to INTEGER + PRIMARY_KEY + UNIQUE,
-                                "param" to INTEGER)
+                        /*
+                        テーブルネームは入力された面数の値と同じ(6面なら6)
+                        以下要素一覧
+                        id:識別番号(要はfaceと同じ)
+                        face:サイコロの面の値
+                        probability:その値の出る確率
+                         */
+                        //{$editText.text.toString()}
+                        createTable("2", true,
+                                "id" to INTEGER + PRIMARY_KEY + UNIQUE,
+                                "face" to INTEGER,
+                                "probability" to INTEGER)
+                        //この真下にinsertすることは出来るのだが、ConfidentitalActvivtyからinsertすることが出来ない・・
+                        //同じクラス内のデータベースにしかアクセスすることが出来ないのか？ そんなんだったらデータベースを使う価値は全く無いが、まさかそんなことはありえないだろう
+                        //databaseのインスタンスを作成するのか？ankoの説明書にはそんな事書いてあるようには見えなかったが
                     }
                     val intent = Intent(this, RollActivity::class.java)
                     intent.putExtra("Num", num)

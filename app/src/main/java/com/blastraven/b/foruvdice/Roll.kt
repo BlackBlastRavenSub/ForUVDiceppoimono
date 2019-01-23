@@ -3,10 +3,10 @@ package com.blastraven.b.foruvdice
 import java.util.*
 
 class Roll(num: Int) {
-    var result=0//ダイスロールの結果は!?
+    var result = 0//ダイスロールの結果は!?
     var numface = num//ダイスの面数
     var commonmultiple = 0//最小公倍数
-    var Percentparam = arrayListOf<Int>(numface, 0)//百分率の配列
+    var Percentparam = Array<Int>(numface) { 0 }//百分率の配列
     var Outcome = 0//結果
     var directrand = (0..numface).random()//乱数
     var Percentagerand = (1..100).random()//乱数
@@ -14,20 +14,21 @@ class Roll(num: Int) {
     fun ClosedRange<Int>.random() =
             Random().nextInt((endInclusive + 1) - start) + start
 
-    fun roll(num: Int):Int {
+    fun roll(num: Int): Int {
         //判定方法分岐
 
         //各種初期化
         numface = num//ダイスの面数
         commonmultiple = 0//最小公倍数
-        Percentparam = arrayListOf<Int>(numface, 0)//百分率の配列
+        Percentparam = Array<Int>(numface) { 0 }//百分率の配列
         Outcome = 0//結果
         directrand = (0..numface).random()//乱数
         Percentagerand = (1..100).random()//乱数
         commonmultiplerand = 0//乱数
 
         //いざ転がす!
-        //テスト用
+        //テスト用、まずは最も単純なDirectRollを使ってみようと思ったが、自分でDirectRollの使い方を忘れてしまっているためやっぱりPercentageRollを使用する
+        PercentageRoll(numface)
         return result
     }
 
@@ -51,7 +52,7 @@ class Roll(num: Int) {
                 in Percentparam[i - 1]..Percentparam[i] -> Outcome = i
             }
         }
-
+        result = Outcome
     }
 
     //確率を最小公倍数で判定

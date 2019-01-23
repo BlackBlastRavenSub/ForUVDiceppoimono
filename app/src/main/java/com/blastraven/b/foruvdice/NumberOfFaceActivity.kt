@@ -22,6 +22,9 @@ class NumberOfFaceActivity : AppCompatActivity() {
                 if (num != 0) {
                     database.use {
                         /*
+                        サイコロの面数を元にデータベーステーブルを作成する。
+                        これで、データを保存することが出来る
+                        履歴等のデータはとりあえず後にして・・・
                         テーブルネームは入力された面数の値と同じ(6面なら6)
                         以下要素一覧
                         id:識別番号(要はfaceと同じ)

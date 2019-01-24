@@ -6,7 +6,7 @@ class Roll(num: Int) {
     var result = 0//ダイスロールの結果は!?
     var numface = num//ダイスの面数
     var commonmultiple = 0//最小公倍数
-    var Percentparam = Array<Int>(numface) { 0 }//百分率の配列
+    var Percentparam = Array<Int>(numface + 1) { 0 }//百分率の配列
     var Outcome = 0//結果
     var directrand = (0..numface).random()//乱数
     var Percentagerand = (1..100).random()//乱数
@@ -20,7 +20,7 @@ class Roll(num: Int) {
         //各種初期化
         numface = num//ダイスの面数
         commonmultiple = 0//最小公倍数
-        Percentparam = Array<Int>(numface) { 0 }//百分率の配列
+        Percentparam = Array<Int>(numface + 1) { 0 }//百分率の配列
         Outcome = 0//結果
         directrand = (0..numface).random()//乱数
         Percentagerand = (1..100).random()//乱数

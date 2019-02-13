@@ -20,7 +20,7 @@ class Roll(num: Int) {
         //各種初期化
         numface = num//ダイスの面数
         commonmultiple = 0//最小公倍数
-        percentParam = Array<Int>(numface + 1) { 0 }//百分率の配列
+        percentParam = Array(numface + 1) { 0 }//百分率の配列
         outcome = 0//結果
         directRand = (0..numface).random()//乱数
         percentageRand = (1..100).random()//乱数
@@ -79,5 +79,4 @@ class Roll(num: Int) {
             }
         }
     }
-
 }

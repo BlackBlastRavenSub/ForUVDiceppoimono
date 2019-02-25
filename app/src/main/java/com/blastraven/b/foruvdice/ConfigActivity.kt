@@ -28,7 +28,7 @@ class ConfigActivity : AppCompatActivity() {
                     "photo" to BLOB)
         }
     }
-    fun SaveFonfig() {
+    fun SaveConfig() {
 
     }
 }

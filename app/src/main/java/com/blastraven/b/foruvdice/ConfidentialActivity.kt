@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.insert
+import org.jetbrains.anko.db.select
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class ConfidentialActivity : AppCompatActivity() {
@@ -16,13 +17,13 @@ class ConfidentialActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_confidential)
         for (i in 1..numface) {
-            /*
-            database.use {
-                select(numface.toString())
-                        .whereArgs("(face > {face})",
-                                "face" to "$i")
-            }.exec { parseList(classParser()) }
-            */
+
+            //.exec { parseList(classParser()) }
+        }
+        database.use {
+            select(numface.toString())
+                    .whereArgs("(face > {face})",
+                            "face" to "$i")
         }
         //setContentView(R.layout.activity_confidential)
         linearLayout {

@@ -15,7 +15,6 @@ class NumberOfFaceActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number_of_face)
-
         input.setOnClickListener {
             if (editText.text.toString() != "") {
                 var num = Integer.parseInt(editText.text.toString())

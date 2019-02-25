@@ -2,6 +2,7 @@ package com.blastraven.b.foruvdice
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import org.jetbrains.anko.*
 import org.jetbrains.anko.db.insert
 import org.jetbrains.anko.db.select
@@ -21,9 +22,24 @@ class ConfidentialActivity : AppCompatActivity() {
             //.exec { parseList(classParser()) }
         }
         database.use {
+            /*
             select(numface.toString())
-                    .whereArgs("(face > {face})",
+                    .whereArgs("(face == {face})",
                             "face" to "$i")
+        */
+            //サンプルのすべてのデータを取得
+            select("sample").exec {
+                moveToFirst()
+                Log.d("nshiba", "id: ${getInt(0)}")
+                Log.d("nshiba", "face: ${getInt(1)}")
+                Log.d("nshiba", "probability: ${getInt(2)}")
+                //moveToNext()データが有ればtrue
+                while (moveToNext()) {
+                    Log.d("nshiba", "id: ${getInt(0)}")
+                    Log.d("nshiba", "face: ${getInt(1)}")
+                    Log.d("nshiba", "probability: ${getInt(2)}")
+                }
+            }
         }
         //setContentView(R.layout.activity_confidential)
         linearLayout {
@@ -39,11 +55,11 @@ class ConfidentialActivity : AppCompatActivity() {
             }//.lparams(width = matchParent, height = matchParent)
             button("accept") {
                 onClick {
-                    for (i in 1..numface) {
-                        database.use {
+                    database.use {
+                        for (i in 1..numface) {
                             //$numface.toString()
                             insert("2",
-                                    "id" to 1,//i
+                                    "id" to i,//i
                                     "face" to 1,//i
                                     "probability" to 1//temp[i]
                             )

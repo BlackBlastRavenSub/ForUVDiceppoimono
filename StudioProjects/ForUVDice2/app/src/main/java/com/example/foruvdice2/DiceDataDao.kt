@@ -8,8 +8,10 @@ import androidx.room.Query
 @Dao
 interface DiceDataDao {
     //追加
+    @Insert
+    fun insertDiceData(diceData: DiceData)
 
-
+/*
     @Query("SELECT * FROM dicedata")
     fun getAll(): List<UserDao>
 
@@ -28,4 +30,5 @@ interface DiceDataDao {
 
     @Delete
     fun delete(dicedata: DiceDataDao)
+    */
 }

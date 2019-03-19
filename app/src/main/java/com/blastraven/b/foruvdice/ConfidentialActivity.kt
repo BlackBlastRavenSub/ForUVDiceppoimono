@@ -19,15 +19,16 @@ class ConfidentialActivity : AppCompatActivity() {
         //setContentView(R.layout.activity_confidential)
         for (i in 1..numface) {
 
-            //.exec { parseList(classParser()) }
+            //.exec { parseList(classParser()) }Anko
         }
+        /*Anko
         database.use {
             /*
             select(numface.toString())
                     .whereArgs("(face == {face})",
                             "face" to "$i")
         */
-            //サンプルのすべてのデータを取得
+            /*サンプルのすべてのデータを取得
             select("sample").exec {
                 moveToFirst()
                 Log.d("nshiba", "id: ${getInt(0)}")
@@ -40,7 +41,9 @@ class ConfidentialActivity : AppCompatActivity() {
                     Log.d("nshiba", "probability: ${getInt(2)}")
                 }
             }
+            */
         }
+        */
         //setContentView(R.layout.activity_confidential)
         linearLayout {
             scrollView {
@@ -55,6 +58,10 @@ class ConfidentialActivity : AppCompatActivity() {
             }//.lparams(width = matchParent, height = matchParent)
             button("accept") {
                 onClick {
+
+
+                    /*
+                    Anko
                     database.use {
                         for (i in 1..numface) {
                             //$numface.toString()
@@ -65,6 +72,7 @@ class ConfidentialActivity : AppCompatActivity() {
                             )
                         }
                     }
+                    */
                     toast(t)
                 }
             }

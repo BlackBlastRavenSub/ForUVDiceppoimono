@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.room.Room
 import org.jetbrains.anko.button
 import org.jetbrains.anko.sdk27.coroutines.onClick
 import org.jetbrains.anko.verticalLayout
@@ -14,6 +15,7 @@ class TitleActivity : AppCompatActivity() {
     val uri: Uri = Uri.parse("http://temporaryaddress.jpn.ph")
 
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         Instance = this
         fun TitleActivityGetContext(): Context {

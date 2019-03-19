@@ -21,12 +21,13 @@ class ConfigActivity : AppCompatActivity() {
             }
         }
 
+        /*Anko
         database.use {
             createTable("Customer", true,
                     "id" to INTEGER + PRIMARY_KEY + UNIQUE,
                     "name" to TEXT,
                     "photo" to BLOB)
-        }
+        }*/
     }
     fun SaveConfig() {
 

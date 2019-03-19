@@ -3,22 +3,30 @@ package com.blastraven.b.foruvdice
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_number_of_face.*
-import org.jetbrains.anko.db.INTEGER
-import org.jetbrains.anko.db.PRIMARY_KEY
-import org.jetbrains.anko.db.UNIQUE
-import org.jetbrains.anko.db.createTable
 import org.jetbrains.anko.toast
 
 class NumberOfFaceActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        //Roomデータベースのインスタンスを作成
+        val db = Room.databaseBuilder(
+                applicationContext,
+                AppDatabase::class.java, "database-name"
+        ).build()
+        //テスト
+        db.DiceDataDao().insertNumber(1)
+        db.DiceDataDao().insertProbability(2)
+
+
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_number_of_face)
         input.setOnClickListener {
             if (editText.text.toString() != "") {
                 var num = Integer.parseInt(editText.text.toString())
                 if (num != 0) {
+                    /*Anko
                     database.use {
                         /*
                         サイコロの面数を元にデータベーステーブルを作成する。
@@ -39,6 +47,10 @@ class NumberOfFaceActivity : AppCompatActivity() {
                         //同じクラス内のデータベースにしかアクセスすることが出来ないのか？ そんなんだったらデータベースを使う価値は全く無いが、まさかそんなことはありえないだろう
                         //databaseのインスタンスを作成するのか？ankoの説明書にはそんな事書いてあるようには見えなかったが
                     }
+                    */
+                    //Ankoは上手く行かなかったので作り直しだ。今回はRoomを使用する。何か進展があればよいのだが、例えばデータを保存して取り出すとか。
+
+
                     val intent = Intent(this, RollActivity::class.java)
                     intent.putExtra("Num", num)
                     startActivity(intent)
@@ -46,7 +58,9 @@ class NumberOfFaceActivity : AppCompatActivity() {
                     toast("0面は判定できない")
                 }
             } else {
-                toast("値を入力してください!")
+                //toast("値を入力してください!")
+                val list = arrayOf(db.DiceDataDao().getAll())
+                toast("${list[0]}")
             }
         }
     }

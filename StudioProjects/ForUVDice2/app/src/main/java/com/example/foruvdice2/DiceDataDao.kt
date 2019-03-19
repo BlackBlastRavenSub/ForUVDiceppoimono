@@ -11,6 +11,9 @@ interface DiceDataDao {
     @Insert
     fun insertDiceData(diceData: DiceData)
 
+    //クエリ
+    @Query("SELECT * FROM DiceData")
+    fun getAll():List<DiceData>
 /*
     @Query("SELECT * FROM dicedata")
     fun getAll(): List<UserDao>

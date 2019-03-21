@@ -3,9 +3,12 @@ package com.example.foruvdice2
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.Settings
 import android.widget.Toast
 import androidx.room.Room
 import kotlinx.android.synthetic.main.activity_title.*
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class TitleActivity : AppCompatActivity() {
 
@@ -24,8 +27,9 @@ class TitleActivity : AppCompatActivity() {
                 AppDatabase::class.java, "database-name"
             ).build()
             val dicedata = DiceData(0, 0, 0)
-            db.DiceDataDao().insertDiceData(dicedata)
-
+            GlobalScope.launch {
+                db.DiceDataDao().insertDiceData(dicedata)
+            }
             val output = db.DiceDataDao().getAll()
             for (item in output) {
                 Toast.makeText(applicationContext, "$item", Toast.LENGTH_LONG).show()
